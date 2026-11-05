@@ -1,0 +1,229 @@
+/* General styles */
+:root {
+  --sidebar: 240px;
+  --form: 300px;
+  --gap: 14px;
+  --card-w: 220px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: Inter, Arial, sans-serif;
+}
+header {
+  height: 56px;
+  background: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 12px;
+}
+header h1 {
+  font-size: 1rem;
+}
+#searchBar {
+  margin-left: auto;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: none;
+  min-width: 220px;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  gap: var(--gap);
+  overflow: hidden;
+}
+aside {
+  width: var(--sidebar);
+  background: #f5f6f8;
+  border-right: 1px solid #e3e6ea;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #d6dbe3;
+}
+button {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #2a6cff;
+  background: #2a6cff;
+  color: #fff;
+  cursor: pointer;
+}
+.areas {
+  flex: 1;
+  overflow: auto;
+  margin-top: 10px;
+}
+.area {
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.area:hover,
+.area.active {
+  background: #e6eefc;
+}
+
+main {
+  flex: 1;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+.breadcrumb {
+  font-size: 13px;
+  color: #555;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.breadcrumb button {
+  background: none;
+  border: none;
+  color: #2a6cff;
+  cursor: pointer;
+  padding: 2px;
+}
+.folders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.folder {
+  width: 180px;
+  height: 100px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #e0e6ef;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+.folder small {
+  color: #666;
+  font-size: 12px;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.flashcard {
+  width: var(--card-w);
+  height: 140px;
+  perspective: 900px;
+  position: relative;
+}
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.55s;
+  transform-style: preserve-3d;
+}
+.flashcard.flip .flashcard-inner {
+  transform: rotateY(180deg);
+}
+.front,
+.back {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border: 1px solid #dfe7ef;
+  background: #fff;
+}
+.back {
+  transform: rotateY(180deg);
+  background: #f0f8ff;
+}
+.card-actions {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  display: flex;
+  gap: 6px;
+}
+.card-actions button {
+  border: none;
+  background: #f1f5f9;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.domain-label {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  font-size: 11px;
+  color: #666;
+}
+
+.form-section {
+  width: var(--form);
+  border-left: 1px solid #e3e6ea;
+  padding: 14px;
+  background: #fbfcfd;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form-section input,
+.form-section textarea {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #d6dbe3;
+}
+.form-section textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+footer {
+  height: 32px;
+  background: #fafbfd;
+  border-top: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 13px;
+  color: #666;
+}
+@media (max-width: 900px) {
+  aside {
+    display: none;
+  }
+  .form-section {
+    display: none;
+  }
+  .container {
+    padding: 10px;
+  }
+}

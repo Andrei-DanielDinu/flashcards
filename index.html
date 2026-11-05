@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uomo Universale Flashcards</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Uomo Universale — Flashcards Explorer</h1>
+      <input id="searchBar" placeholder="Search (press Esc to clear)..." />
+    </header>
+    <div class="container">
+      <aside>
+        <h2>Create Branch</h2>
+        <textarea
+          id="treePathInput"
+          placeholder="Comma-separated path"
+        ></textarea>
+        <button id="addTreeBtn">Add Branch</button>
+        <div class="controls">
+          <button id="exportBtn">Export JSON</button>
+          <input
+            id="importFile"
+            type="file"
+            accept=".json"
+            style="display: none"
+          />
+          <button id="importBtn">Import JSON</button>
+        </div>
+        <div class="areas" id="areasList"></div>
+      </aside>
+
+      <main>
+        <div class="breadcrumb" id="breadcrumb"></div>
+        <div class="folders" id="folders"></div>
+        <div class="cards" id="cards"></div>
+      </main>
+
+      <section class="form-section">
+        <h2 id="formTitle">Add Flashcard</h2>
+        <form id="nodeForm">
+          <input id="question" placeholder="Question (or title)" required />
+          <textarea
+            id="answer"
+            placeholder="Answer (or description)"
+            required
+          ></textarea>
+          <input id="tags" placeholder="Tags (comma-separated)" />
+          <button type="submit">Save Flashcard</button>
+        </form>
+        <div style="font-size: 13px; color: #444; margin-top: 12px">
+          Current node: <strong id="currentPathLabel"></strong>
+        </div>
+      </section>
+    </div>
+    <footer>
+      Navigate folders, add cards, or create branches using the left textarea.
+    </footer>
+    <script src="scri.js"></script>
+  </body>
+</html>
